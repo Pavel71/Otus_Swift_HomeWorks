@@ -10,19 +10,12 @@ import SwiftUI
 
 
 
-//final class SelectedRow: ObservableObject {
-//
-//  @Binding var indexRow: Int?
-//}
-
 struct RootView: View {
   
   @State private var selection = 0
   // При изменение этого стейта мы переходим ячейки в ListView
   @State private var indexRow: Int? 
-//  @State var indexRow: Int?
-  
-//  let viewModel = SelectedRow()
+
   
   var body: some View {
     
@@ -37,8 +30,7 @@ struct RootView: View {
       }.tag(0)
       
       ListVIew(indexRow: $indexRow)
-        // Нужно передать в evirnoment ViewModel c сохранеными данными
-//      .environmentObject(viewModel)
+ 
         .tabItem {
         Text("List")
         Image(systemName: "list.bullet")

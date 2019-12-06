@@ -41,7 +41,7 @@ struct ListVIew: View {
 
 //struct ListVIew_Previews: PreviewProvider {
 //  
-//  @State var test = 2
+
 //  
 //  static var previews: some View {
 //    ListVIew(indexRow: $test)
