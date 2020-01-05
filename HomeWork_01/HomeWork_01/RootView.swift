@@ -27,7 +27,7 @@ struct RootView: View {
           Text("Start")
           Image(systemName: "bolt")
         }
-      }.tag(0)
+      }.tag(0) // Таг изменяет входящий State(selection)
       
       ListVIew(indexRow: $indexRow)
  
