@@ -13,14 +13,7 @@ import Foundation
 
 
 
-struct API {
-  
-  static let scheme      = "https"
-  static let host        = "api.openweathermap.org"
-  static let weatherPath = "/data/2.5/weather"
-  
-  static let appiKey     = "1ff8ab446fb54537ac50354a4016439c"
-}
+
 
 class NetWorkService {
   
@@ -70,7 +63,7 @@ extension NetWorkService {
     
     components.scheme = API.scheme
     components.host   = API.host
-    components.path   = API.weatherPath
+    components.path   = API.weatherPathNow
     
     let params = ["q": city,"APPID": API.appiKey,"units":"metric"]
     

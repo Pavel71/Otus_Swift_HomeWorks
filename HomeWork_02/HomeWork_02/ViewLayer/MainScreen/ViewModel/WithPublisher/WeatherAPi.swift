@@ -26,7 +26,42 @@ final class WeatherAPi {
   
   
   
-  // Возвращаем паблишер с загруженными данными
+  
+  // Получить даннные по городу за последние 10 дней
+  
+//  func fetchCityTemepratureForLast10Days(cityName: String) -> Future<CityTemperatureForLast10DaysModel, WeatherAPIError> {
+//
+//    return Future<CityTemperatureForLast10DaysModel, WeatherAPIError> {[unowned self] promise in
+//
+//      guard let url = WeatherUrlCreater.getWeatherForCityLast16Days(city: cityName) else {
+//        return promise(.failure(WeatherAPIError.urlError(.init(.unsupportedURL))))
+//      }
+//
+//      self.urlSession.dataTaskPublisher(for: url)
+//        .tryMap { (data,response) -> Data in
+//          guard let httpResponse = response as? HTTPURLResponse, 200...299 ~=  httpResponse.statusCode else {
+//
+//            throw WeatherAPIError.responseError(
+//              (response as? HTTPURLResponse)?.statusCode ?? 500
+//            )
+//          }
+//          // 1ый паблишер
+//          print(data,"For last 16 Days Data")
+//          return data
+//
+//      }
+//
+//      // Покачто для теста вернем дамми дату
+//
+//      let cityTempForLast10DaysData = CityTemperatureForLast10DaysModel(cityName: " asd", temperatures: [10,11,12,13,14,15,16,10])
+//      promise(.success(cityTempForLast10DaysData))
+//
+//    }
+//  }
+  
+  
+  
+  // Получить Данные по погоде для города сейчас
   
   func fecthCityWeather(city: String) -> Future <WeatherModel, WeatherAPIError> {
     
@@ -35,7 +70,7 @@ final class WeatherAPi {
       
       // Получили url Если сформировали не правельно то возвращаем ошибку
       
-      guard let url = WeatherUrlCreater.getWeatherRequestUrl(city: city) else {
+      guard let url = WeatherUrlCreater.getWeatherRequestUrlCityNow(city: city) else {
         return promise(.failure(WeatherAPIError.urlError(.init(.unsupportedURL))))
       }
       

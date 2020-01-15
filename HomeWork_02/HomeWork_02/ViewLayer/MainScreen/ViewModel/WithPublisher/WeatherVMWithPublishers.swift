@@ -16,12 +16,22 @@ final class WeatherVMWithPublishers: ObservableObject {
   @Published var isactivateAnimation : Bool  = false
   @Published var isLoaded            : Bool  = false
   
-  @Published var selectedCity        : Int = 0
+  @Published var selectedCity        : Int   = 0
+  
+  var selectedCityName : String {
+    print("Computed Favorit CityName , \(favoritsCity[selectedCity])")
+    return favoritsCity[selectedCity]
+  }
+  
   var cityWeatherModel               : WeatherModel = WeatherModel(conditionId: 800, cityName: "Ошибка API", temperature: 0)
   
   var weatherApi                      = WeatherAPi.shared
   private var cancellableSet         : Set <AnyCancellable> = []
   
+  
+  
+  // ScrollView
+  // ВОзможно стоит переписать свою ViewModel
   
   var allCity    = ["Barcelona","Dubai","New York","Los Angeles"]
   
@@ -37,6 +47,8 @@ final class WeatherVMWithPublishers: ObservableObject {
   @Published var favoritsCity = ["Tula","London","Moscow","Paris","Berlin"]
   
   init() {
+    
+    // ScrollView Selected New City
     
     $selectedCity.flatMap { (selectedIndex) -> AnyPublisher<WeatherModel, Never> in
       
@@ -70,15 +82,28 @@ final class WeatherVMWithPublishers: ObservableObject {
       
       self.loadingNewCityies = false
       
-      
-      guard let randomCity = self.allCity.randomElement() else {return}
-      
-      if self.favoritsCity.contains(randomCity) == false {
-        self.favoritsCity.append(randomCity)
-      }
-
+      guard let lastCity = self.allCity.last else {return}
+      self.allCity = self.allCity.dropLast()
+      self.favoritsCity.append(lastCity)
     }
   }
+  
+  
+  
+//  func prepareDataFrom16DaysTemperatureToChartView(typeChart: ChartType) {
+//
+//    self.chartVM.prepareData(type: typeChart, cityName: favoritsCity[selectedCity])
+////    self.chartVM.typeChart = typeChart
+////    self.chartVM.cityName  = favoritsCity[selectedCity]
+//
+//  }
+  
+  
+  
+  
+  
+  
+  
   
   deinit {
     for cancel in cancellableSet {
