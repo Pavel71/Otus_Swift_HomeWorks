@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0516328123D0C79300353DA5 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516328023D0C79300353DA5 /* ServiceLocator.swift */; };
 		052BB4FE23CDE54A0089AE4D /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052BB4FD23CDE54A0089AE4D /* ChartViewModel.swift */; };
 		054EAB3323C1FB87000316C7 /* RefreshHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054EAB3223C1FB87000316C7 /* RefreshHorizontalScrollView.swift */; };
 		054EAB3923C216FE000316C7 /* Indexed+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054EAB3823C216FD000316C7 /* Indexed+Extension.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0516328023D0C79300353DA5 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		052BB4FD23CDE54A0089AE4D /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		054EAB3223C1FB87000316C7 /* RefreshHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHorizontalScrollView.swift; sourceTree = "<group>"; };
 		054EAB3823C216FD000316C7 /* Indexed+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Indexed+Extension.swift"; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0516327F23D0C74800353DA5 /* ServiceLocator */ = {
+			isa = PBXGroup;
+			children = (
+				0516328023D0C79300353DA5 /* ServiceLocator.swift */,
+			);
+			path = ServiceLocator;
+			sourceTree = "<group>";
+		};
 		054EAB3123C1E7A3000316C7 /* Depricated */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +287,7 @@
 		0596D8DC23CDE40B004633E9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0516327F23D0C74800353DA5 /* ServiceLocator */,
 				0596D8D423CDD53E004633E9 /* AppState */,
 				055A725E23A7E973002CA9A7 /* NetWorkLayer */,
 			);
@@ -410,6 +421,7 @@
 				056EA7C023ACFE040099C8F0 /* WeatherViewModel.swift in Sources */,
 				055A724C23A7E4E3002CA9A7 /* ContentView.swift in Sources */,
 				0582BEF423A911DA00A430A0 /* NetworkDataFetcher.swift in Sources */,
+				0516328123D0C79300353DA5 /* ServiceLocator.swift in Sources */,
 				054EAB3923C216FE000316C7 /* Indexed+Extension.swift in Sources */,
 				054EAB3323C1FB87000316C7 /* RefreshHorizontalScrollView.swift in Sources */,
 				0582BEFF23A9252A00A430A0 /* WeatherModel.swift in Sources */,

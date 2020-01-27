@@ -17,7 +17,9 @@ import SwiftUICharts
 struct ChartView: View {
   
   @EnvironmentObject var chartVM: ChartViewModel
-
+  var appState: AppState = ServiceLocator.shared.getService()!
+  
+  
   var body: some View {
     
     GeometryReader { g in
@@ -49,7 +51,8 @@ struct ChartView: View {
         
         
         Button("toggle Back") {
-          AppState.shared.toogleChartWindow()
+
+          self.appState.toogleChartWindow()
         }
         .frame(
           height: self.chartVM.typeChart == ChartType.line ? 100 : nil,

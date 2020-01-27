@@ -19,6 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
+    
+    // Service Locator
+    let appStateService: AppState = AppState.shared
+    ServiceLocator.shared.addService(service: appStateService)
+    
     // Create the SwiftUI view that provides the window contents.
     
     let weatherVM = WeatherVMWithPublishers()
@@ -28,25 +33,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // Use a UIHostingController as window root view controller.
     if let windowScene = scene as? UIWindowScene {
+
       
-//      let window = UIWindow(windowScene: windowScene)
-//      window.rootViewController = UIHostingController(rootView: contentView)
-//      self.window = window
       
-      AppState.shared.mainWindow = UIWindow(windowScene: windowScene)
-      AppState.shared.mainWindow?.rootViewController = UIHostingController(rootView: contentView)
-      AppState.shared.mainWindow!.makeKeyAndVisible()
+      appStateService.mainWindow = UIWindow(windowScene: windowScene)
+      appStateService.mainWindow?.rootViewController = UIHostingController(rootView: contentView)
+      appStateService.mainWindow!.makeKeyAndVisible()
       
       
       
       
-      AppState.shared.secondWindow = UIWindow(windowScene: windowScene)
+      appStateService.secondWindow = UIWindow(windowScene: windowScene)
 
       let vc = UIHostingController(rootView: ChartView().environmentObject(chartVM))
 //      vc.view.backgroundColor = .clear // Если мы хотим показать окно поверх Main
 
-      AppState.shared.secondWindow?.windowLevel = UIWindow.Level.alert + 1
-      AppState.shared.secondWindow?.rootViewController = vc
+      appStateService.secondWindow?.windowLevel = UIWindow.Level.alert + 1
+      appStateService.secondWindow?.rootViewController = vc
       
     }
     

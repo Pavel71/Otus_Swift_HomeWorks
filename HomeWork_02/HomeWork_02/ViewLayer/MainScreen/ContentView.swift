@@ -22,6 +22,9 @@ struct ContentView: View {
   @State var showChartsButton = false
   @EnvironmentObject var  chartVM             : ChartViewModel
   
+  // Private
+  
+  var appState: AppState = ServiceLocator.shared.getService()!
   
   var body: some View {
     
@@ -54,8 +57,8 @@ struct ContentView: View {
               
               self.showChartsButton.toggle()
               
-              
-              AppState.shared.toogleChartWindow()
+              self.appState.toogleChartWindow()
+
               self.chartVM.prepareData(type: .bar, cityName: self.weatherVMWithPublisher.selectedCityName)
               
           }
@@ -73,9 +76,8 @@ struct ContentView: View {
             .onTapGesture {
               
               self.showChartsButton.toggle()
-              
-              
-              AppState.shared.toogleChartWindow()
+              self.appState.toogleChartWindow()
+
               self.chartVM.prepareData(type: .line, cityName: self.weatherVMWithPublisher.selectedCityName)
               
           }
