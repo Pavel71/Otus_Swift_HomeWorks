@@ -85,7 +85,10 @@ struct AuthtorizationScreen: View {
             Button(action: {
               self.autorizationVM.isValid.toggle()
               
-              print(self.autorizationVM.formState)
+              // Пока сделаю просто свернуть! потом сохраню данные
+              if self.autorizationVM.formState == .valid {
+                self.presentation.wrappedValue.dismiss()
+              }
               
             }) {
               Text("Sign Up")
