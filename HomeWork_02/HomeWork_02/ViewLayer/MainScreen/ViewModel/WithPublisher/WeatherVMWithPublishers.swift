@@ -90,21 +90,6 @@ final class WeatherVMWithPublishers: ObservableObject {
   
   
   
-//  func prepareDataFrom16DaysTemperatureToChartView(typeChart: ChartType) {
-//
-//    self.chartVM.prepareData(type: typeChart, cityName: favoritsCity[selectedCity])
-////    self.chartVM.typeChart = typeChart
-////    self.chartVM.cityName  = favoritsCity[selectedCity]
-//
-//  }
-  
-  
-  
-  
-  
-  
-  
-  
   deinit {
     for cancel in cancellableSet {
       cancel.cancel()

@@ -20,6 +20,7 @@ struct ContentView: View {
   
   @ObservedObject var weatherVMWithPublisher : WeatherVMWithPublishers
   @State var showChartsButton = false
+  @State var showAuthScreen   = false
   @EnvironmentObject var  chartVM             : ChartViewModel
   
   // Private
@@ -106,8 +107,14 @@ struct ContentView: View {
     .resizable()
     .aspectRatio(contentMode: .fill)
     .edgesIgnoringSafeArea(.all))
-    
-    
+    .onAppear {
+      // Загрузить Модальное окно с регистрацией!
+      self.showAuthScreen = true
+    }
+    .sheet(isPresented: $showAuthScreen, content: {
+      AuthtorizationScreen(autorizationVM: AutorizationVM())
+    })
+   
   }
   
 }

@@ -31,11 +31,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     let contentView = ContentView(weatherVMWithPublisher:weatherVM).environmentObject(chartVM)
     
+    
+    
     // Use a UIHostingController as window root view controller.
     if let windowScene = scene as? UIWindowScene {
 
-      
-      
+ 
       appStateService.mainWindow = UIWindow(windowScene: windowScene)
       appStateService.mainWindow?.rootViewController = UIHostingController(rootView: contentView)
       appStateService.mainWindow!.makeKeyAndVisible()
